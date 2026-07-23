@@ -13,8 +13,9 @@ os.environ["DATABASE_URL"] = "sqlite:///:memory:"
 os.environ["APP_KEY"] = "test-key"
 
 # Monkey patch for eventlet simulation
-import eventlet
+import pytest
 
+eventlet = pytest.importorskip("eventlet")
 eventlet.monkey_patch()
 
 # Now import the service, it will see the patched environment

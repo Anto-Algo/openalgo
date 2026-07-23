@@ -91,12 +91,12 @@ set "UV_CMD="
 where uv >nul 2>&1
 if not errorlevel 1 (
     set "UV_CMD=uv"
-    echo   [OK] uv found (standalone)
+    echo   [OK] uv found - standalone
 ) else (
     python -m uv --version >nul 2>&1
     if not errorlevel 1 (
         set "UV_CMD=python -m uv"
-        echo   [OK] uv found (Python module)
+        echo   [OK] uv found - Python module
     ) else (
         echo [ERROR] uv is not installed.
         echo Install with: pip install uv
